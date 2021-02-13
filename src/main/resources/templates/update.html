@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update layout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:insert="parts/navigation :: nav"></div>
+<div class="container mt-5">
+
+    <div>
+        <form method="post" action="/update"  >
+            <div class="form-group">
+                <input type="text" hidden name="id" class="form-control" th:value="${layout.id}">
+            </div>
+            <div class="form-group">
+                <label for="inputName">New name:</label>
+                <input type="text" name="name" class="form-control"
+                       th:value="${layout.name}" required placeholder="New name" id="inputName">
+            </div>
+            <div class="form-group">
+                <label for="inputCoordinates">Coordinates:</label>
+                <input type="text" name="points" class="form-control" id="inputCoordinates"
+                       aria-describedby="coordinatesHelp" placeholder="Coordinates" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update layout</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
