@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:insert="parts/navigation :: nav"></div>
+<div class="container mt-5">
+    <div align="center" ><h1 >Layouts:</h1></div>
+
+    <table class="table" >
+        <thead class="thead-dark">
+        <tr align="center">
+            <th scope="col">Name</th>
+            <th scope="col">Coordinates</th>
+            <th scope="col">Views</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="l : ${layouts}">
+            <td th:text="${l.name}"></td>
+            <td th:text="${l.points}"></td>
+            <td align="center">
+                <a role="button" class="btn btn-success" th:href="@{'/show?id=' + ${l.id}}">
+                    <span>Show</span>
+                </a>
+            </td>
+            <td align="center">
+                <a role="button" class="btn btn-danger" th:href="@{'/delete?id=' + ${l.id}}">
+                    <span>Delete</span>
+                </a>
+                <a role="button" class="btn btn-warning" th:href="@{'/update?id=' + ${l.id}}">
+                    <span>Update</span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
